@@ -1,31 +1,35 @@
 function runProgram(input) {
   
 var newInput =input.trim().split("\n");
-// console.log(newInput)
-var test = newInput[0].trim().split(" ").map(Number);
-var n = test[0];
-var m = test[1];
-var l = test[2];
-var arr =newInput[1].trim().split(" ").map(Number);
-// console.log(data)
-var max =0;
+var [layer,rows,col]=newInput[0].trim().split(" ").map(Number)
+var arr=newInput[1].trim().split(" ").map(Number)
+var count=0;
 
-for(i =0;i<n;i++){
-for(j=0;j<m;j++){
-        var res="";
 
-        for(k=0;k<l;k++){
-                res+=(arr[max++])+" ";
-             
-        }
-        console.log(res)
+
+// for(i =0;i<layer;i++){
+//       for(j=0;j<rows;j++){
+//             var threedarr=[]
+//               for(k=0;k<col;k++){
+//                   threedarr.push(arr[count++]);
+                   
+//               }
+//               console.log(threedarr.join(" "))
+//       }
+var threedarr=[]
+for( var i=0 ;i<layer;i++){
+      var layerarr=[];
+      for(var k=0;k<rows;k++){
+            var rowsarr=[];
+            for(var j=0; j<col;j++){
+                  rowsarr.push(arr[count++]);
+
+            }
+            layerarr.push(rowsarr.join(" "));
+      }
+      threedarr.push(layerarr.join("\n"));
 }
-
-
-}
-
-
-
+console.log(threedarr.join("\n"));
 }
     
 

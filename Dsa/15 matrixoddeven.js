@@ -1,32 +1,36 @@
+
+
+
+
 function runProgram(input) {
   var newInput = input.trim().split("\n");
-  var len = +newInput[0];
-  var arr = newInput[1].trim().split(" ").map(Number);
-  // console.log(arr);
-  var obj = {};
+  var testCase = +newInput[0];
+  // console.log(testCase);
+  var line = 1;
 
-  for (var i = 0; i < arr.length; i++) {
-    if ((obj[arr[i]] )=== undefined) {
-      obj[arr[i] ]= 1;
-    } else {
-      obj[arr[i]] += 1;
+  for (var i = 0; i < testCase; i++) {
+    var [row, col, type] = newInput[line++].trim().split(" ").map(Number);
+    console.log(row, col, type);
+    var arr = [];
+    for (var j = 0; j < row; j++) {
+      arr.push(newInput[line++].trim().split(" ").map(Number));
+
+     
     }
+    // console.log(arr);
   }
-  // console.log(obj);
-   var max=0;
-   
-   for(key in obj){
-     if(max<obj[key]){
-       max=obj[key]
-       var res=key
-     }
-   }
-   console.log(res);
-  
 }
+
 if (process.env.USERNAME === "ranus") {
-  runProgram(`5
-      0 2 0 6 9`);
+  runProgram(`2
+    3 3 1
+    1 2 3
+    4 5 6
+    7 8 9
+    3 3 2
+    1 2 3
+    4 5 6
+    7 8 9`);
 } else {
   process.stdin.resume();
   process.stdin.setEncoding("ascii");
